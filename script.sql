@@ -16,49 +16,49 @@ PRINT @sql;
 EXEC sp_executesql @sql;
 
 -- Drop tables with CASCADE
-DROP TABLE IF EXISTS CBADigitalReceipt.Transactions ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Batches ;
-DROP TABLE IF EXISTS CBADigitalReceipt.FileExports ;
-DROP TABLE IF EXISTS CBADigitalReceipt.AuditLogs ;
-DROP TABLE IF EXISTS CBADigitalReceipt.OneTimePasswords ;
-DROP TABLE IF EXISTS CBADigitalReceipt.UserConfigs ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Users ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Terminals ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Merchants ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Partners ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Permissions ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Roles ;
-DROP TABLE IF EXISTS CBADigitalReceipt.FailedSubmissions ;
-DROP TABLE IF EXISTS CBADigitalReceipt.RECEIPT_DETAILS ;
-DROP TABLE IF EXISTS CBADigitalReceipt.PUSHDEVICE_OPERATION ;
-DROP TABLE IF EXISTS CBADigitalReceipt.DEVICE_STATUS ;
-DROP TABLE IF EXISTS CBADigitalReceipt.PUSH_DEVICE ;
-DROP TABLE IF EXISTS CBADigitalReceipt.DEVICES ;
-DROP TABLE IF EXISTS CBADigitalReceipt.DEVICE_INFO ;
-DROP TABLE IF EXISTS CBADigitalReceipt.DeviceConfigs ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Devices ;
-DROP TABLE IF EXISTS CBADigitalReceipt.OPERATION ;
-DROP TABLE IF EXISTS CBADigitalReceipt.STATUS ;
-DROP TABLE IF EXISTS CBADigitalReceipt.SubscriptionResources ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Resources ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Subscriptions ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Currencies ;
-DROP TABLE IF EXISTS CBADigitalReceipt.email_config ;
-DROP TABLE IF EXISTS CBADigitalReceipt.ConsumingServices ;
-DROP TABLE IF EXISTS CBADigitalReceipt.MerchantCategoryCodes ;
-DROP TABLE IF EXISTS CBADigitalReceipt.DeviceModels ;
-DROP TABLE IF EXISTS CBADigitalReceipt.Venders ;
-DROP TABLE IF EXISTS CBADigitalReceipt.ApplicationSignatures ;
-DROP TABLE IF EXISTS CBADigitalReceipt.AppCodes ;
-DROP TABLE IF EXISTS CBADigitalReceipt.AggregatedTransactions ;
-DROP TABLE IF EXISTS CBADigitalReceipt.EReceipts ;
-DROP TABLE IF EXISTS CBADigitalReceipt.PAPER_ROLL_STATUS ;
-DROP TABLE IF EXISTS CBADigitalReceipt.TASK_CONFIG ;
-DROP TABLE IF EXISTS CBADigitalReceipt.FailedTransactions ;
-DROP TABLE IF EXISTS CBADigitalReceipt.SequelizeMeta ;
-DROP TABLE IF EXISTS CBADigitalReceipt.TranSummary ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Transactions ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Batches ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.FileExports ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.AuditLogs ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.OneTimePasswords ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.UserConfigs ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Users ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Terminals ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Merchants ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Partners ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Permissions ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Roles ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.FailedSubmissions ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.RECEIPT_DETAILS ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.PUSHDEVICE_OPERATION ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.DEVICE_STATUS ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.PUSH_DEVICE ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.DEVICES ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.DEVICE_INFO ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.DeviceConfigs ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Devices ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.OPERATION ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.STATUS ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.SubscriptionResources ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Resources ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Subscriptions ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Currencies ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.email_config ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.ConsumingServices ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.MerchantCategoryCodes ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.DeviceModels ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.Venders ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.ApplicationSignatures ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.AppCodes ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.AggregatedTransactions ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.EReceipts ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.PAPER_ROLL_STATUS ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.TASK_CONFIG ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.FailedTransactions ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.SequelizeMeta ;
+DROP TABLE IF EXISTS CBADigitalReceipt.dbo.TranSummary ;
 
-CREATE TABLE CBADigitalReceipt.AppCodes (
+CREATE TABLE CBADigitalReceipt.dbo.AppCodes (
 	id bigint IDENTITY(1,1) NOT NULL,
 	code varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	description varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
@@ -68,7 +68,7 @@ CREATE TABLE CBADigitalReceipt.AppCodes (
 	CONSTRAINT PK__AppCodes__3213E83F8946867F PRIMARY KEY (id)
 );
 
-CREATE TABLE CBADigitalReceipt.ApplicationSignatures (
+CREATE TABLE CBADigitalReceipt.dbo.ApplicationSignatures (
 	id bigint IDENTITY(1,1) NOT NULL,
 	appVersion varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	appSignature varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE CBADigitalReceipt.ApplicationSignatures (
 	CONSTRAINT PK__Applicat__3213E83FC1A158CB PRIMARY KEY (id)
 );
 
-CREATE TABLE CBADigitalReceipt.Venders (
+CREATE TABLE CBADigitalReceipt.dbo.Venders (
 	id bigint IDENTITY(1,1) NOT NULL,
 	name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	img varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
@@ -86,7 +86,7 @@ CREATE TABLE CBADigitalReceipt.Venders (
 	CONSTRAINT PK__Venders__3213E83F39D8C1F4 PRIMARY KEY (id)
 );
 
-CREATE TABLE CBADigitalReceipt.DeviceModels (
+CREATE TABLE CBADigitalReceipt.dbo.DeviceModels (
 	id bigint IDENTITY(1,1) NOT NULL,
 	name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	venderId bigint NULL,
@@ -95,10 +95,10 @@ CREATE TABLE CBADigitalReceipt.DeviceModels (
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__DeviceMo__3213E83F0DC441BD PRIMARY KEY (id),
 	CONSTRAINT [uk-device-model] UNIQUE (name),
-	CONSTRAINT FK__DeviceMod__vende__43F60EC8 FOREIGN KEY (venderId) REFERENCES CBADigitalReceipt.Venders(id) ON DELETE CASCADE
+	CONSTRAINT FK__DeviceMod__vende__43F60EC8 FOREIGN KEY (venderId) REFERENCES CBADigitalReceipt.dbo.Venders(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.MerchantCategoryCodes (
+CREATE TABLE CBADigitalReceipt.dbo.MerchantCategoryCodes (
 	id bigint IDENTITY(1,1) NOT NULL,
 	code varchar(6) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	description varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -108,13 +108,13 @@ CREATE TABLE CBADigitalReceipt.MerchantCategoryCodes (
 	CONSTRAINT UQ__Merchant__357D4CF9A1D5E303 UNIQUE (code)
 );
 
-CREATE TABLE CBADigitalReceipt.ConsumingServices (
+CREATE TABLE CBADigitalReceipt.dbo.ConsumingServices (
 	id bigint IDENTITY(1,1) NOT NULL,
 	serviceName varchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	CONSTRAINT PK__Consumin__3213E83F64939184 PRIMARY KEY (id)
 );
 
-CREATE TABLE CBADigitalReceipt.email_config (
+CREATE TABLE CBADigitalReceipt.dbo.email_config (
 	id bigint IDENTITY(1,1) NOT NULL,
 	[action] varchar(30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	bcc varchar(500) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
@@ -126,7 +126,7 @@ CREATE TABLE CBADigitalReceipt.email_config (
 	CONSTRAINT unique_action UNIQUE ([action])
 );
 
-CREATE TABLE CBADigitalReceipt.Currencies (
+CREATE TABLE CBADigitalReceipt.dbo.Currencies (
 	id bigint IDENTITY(1,1) NOT NULL,
 	code varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	displayName varchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -135,7 +135,7 @@ CREATE TABLE CBADigitalReceipt.Currencies (
 	CONSTRAINT PK__Currenci__3213E83F645DCE55 PRIMARY KEY (id)
 );
 
-CREATE TABLE CBADigitalReceipt.Subscriptions (
+CREATE TABLE CBADigitalReceipt.dbo.Subscriptions (
 	id bigint IDENTITY(1,1) NOT NULL,
 	callbackUrl varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	retryCount bigint NOT NULL,
@@ -143,26 +143,26 @@ CREATE TABLE CBADigitalReceipt.Subscriptions (
 	mailOnFaliure varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
 	consumingServiceId bigint NULL,
 	CONSTRAINT PK__Subscrip__3213E83F82A1A04A PRIMARY KEY (id),
-	CONSTRAINT FK__Subscript__consu__131DCD43 FOREIGN KEY (consumingServiceId) REFERENCES CBADigitalReceipt.ConsumingServices(id) ON DELETE SET NULL
+	CONSTRAINT FK__Subscript__consu__131DCD43 FOREIGN KEY (consumingServiceId) REFERENCES CBADigitalReceipt.dbo.ConsumingServices(id) ON DELETE SET NULL
 );
 
-CREATE TABLE CBADigitalReceipt.Resources (
+CREATE TABLE CBADigitalReceipt.dbo.Resources (
 	id bigint IDENTITY(1,1) NOT NULL,
 	name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__Resource__3213E83FF920656E PRIMARY KEY (id)
 );
-CREATE TABLE CBADigitalReceipt.SubscriptionResources (
+CREATE TABLE CBADigitalReceipt.dbo.SubscriptionResources (
 	subscriptionId bigint NOT NULL,
 	resourceId bigint NOT NULL,
 	CONSTRAINT PK__Subscrip__778732345588957C PRIMARY KEY (subscriptionId,resourceId),
 	CONSTRAINT SubscriptionResources_subscriptionId_resourceId_unique UNIQUE (subscriptionId,resourceId),
-	CONSTRAINT FK__Subscript__resou__17E28260 FOREIGN KEY (resourceId) REFERENCES CBADigitalReceipt.Resources(id) ON DELETE CASCADE,
-	CONSTRAINT FK__Subscript__subsc__16EE5E27 FOREIGN KEY (subscriptionId) REFERENCES CBADigitalReceipt.Subscriptions(id) ON DELETE CASCADE
+	CONSTRAINT FK__Subscript__resou__17E28260 FOREIGN KEY (resourceId) REFERENCES CBADigitalReceipt.dbo.Resources(id) ON DELETE CASCADE,
+	CONSTRAINT FK__Subscript__subsc__16EE5E27 FOREIGN KEY (subscriptionId) REFERENCES CBADigitalReceipt.dbo.Subscriptions(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.STATUS (
+CREATE TABLE CBADigitalReceipt.dbo.STATUS (
 	status_code varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	status_description varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
 	createdAt datetime2 NOT NULL,
@@ -170,7 +170,7 @@ CREATE TABLE CBADigitalReceipt.STATUS (
 	CONSTRAINT PK__STATUS__4157B020035ACE31 PRIMARY KEY (status_code)
 );
 
-CREATE TABLE CBADigitalReceipt.OPERATION (
+CREATE TABLE CBADigitalReceipt.dbo.OPERATION (
 	id bigint NOT NULL,
 	operationcode varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	description varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
@@ -180,7 +180,7 @@ CREATE TABLE CBADigitalReceipt.OPERATION (
 	CONSTRAINT PK__OPERATIO__3213E83F4DCD725E PRIMARY KEY (id)
 );
 
-CREATE TABLE CBADigitalReceipt.Devices (
+CREATE TABLE CBADigitalReceipt.dbo.Devices (
 	id bigint IDENTITY(1,1) NOT NULL,
 	serialNo varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	emiNo varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -200,10 +200,10 @@ CREATE TABLE CBADigitalReceipt.Devices (
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__Devices__3213E83FEEA6B22F PRIMARY KEY (id),
 	CONSTRAINT [uk-device] UNIQUE (serialNo,deletedRec),
-	CONSTRAINT FK__Devices__deviceM__49AEE81E FOREIGN KEY (deviceModelId) REFERENCES CBADigitalReceipt.DeviceModels(id)
+	CONSTRAINT FK__Devices__deviceM__49AEE81E FOREIGN KEY (deviceModelId) REFERENCES CBADigitalReceipt.dbo.DeviceModels(id)
 );
 
-CREATE TABLE CBADigitalReceipt.DeviceConfigs (
+CREATE TABLE CBADigitalReceipt.dbo.DeviceConfigs (
 	id bigint IDENTITY(1,1) NOT NULL,
 	configType varchar(30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	config varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -211,10 +211,10 @@ CREATE TABLE CBADigitalReceipt.DeviceConfigs (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__DeviceCo__3213E83FFF3F0007 PRIMARY KEY (id),
-	CONSTRAINT FK__DeviceCon__devic__664B26CC FOREIGN KEY (deviceId) REFERENCES CBADigitalReceipt.Devices(id) ON DELETE CASCADE
+	CONSTRAINT FK__DeviceCon__devic__664B26CC FOREIGN KEY (deviceId) REFERENCES CBADigitalReceipt.dbo.Devices(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.DEVICE_INFO (
+CREATE TABLE CBADigitalReceipt.dbo.DEVICE_INFO (
 	id bigint IDENTITY(1,1) NOT NULL,
 	app_list varchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
 	cpu varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
@@ -235,20 +235,20 @@ CREATE TABLE CBADigitalReceipt.DEVICE_INFO (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__DEVICE_I__3213E83F56D8B4E7 PRIMARY KEY (id),
-	CONSTRAINT FK__DEVICE_IN__devic__3A379A64 FOREIGN KEY (device_id) REFERENCES CBADigitalReceipt.Devices(id) ON DELETE CASCADE
+	CONSTRAINT FK__DEVICE_IN__devic__3A379A64 FOREIGN KEY (device_id) REFERENCES CBADigitalReceipt.dbo.Devices(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.PUSH_DEVICE (
+CREATE TABLE CBADigitalReceipt.dbo.PUSH_DEVICE (
 	id bigint IDENTITY(1,1) NOT NULL,
 	push_id varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	device_id bigint NOT NULL,
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__PUSH_DEV__3213E83F12EAB196 PRIMARY KEY (id),
-	CONSTRAINT FK__PUSH_DEVI__devic__4885B9BB FOREIGN KEY (device_Id) REFERENCES CBADigitalReceipt.Devices(id) ON DELETE CASCADE
+	CONSTRAINT FK__PUSH_DEVI__devic__4885B9BB FOREIGN KEY (device_Id) REFERENCES CBADigitalReceipt.dbo.Devices(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.DEVICE_STATUS (
+CREATE TABLE CBADigitalReceipt.dbo.DEVICE_STATUS (
 	id bigint IDENTITY(1,1) NOT NULL,
 	last_updated_time datetime2 DEFAULT NULL NULL,
 	device_active bit DEFAULT 0 NOT NULL,
@@ -257,11 +257,11 @@ CREATE TABLE CBADigitalReceipt.DEVICE_STATUS (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__DEVICE_S__3213E83F0E2D486C PRIMARY KEY (id),
-	CONSTRAINT FK__DEVICE_ST__devic__41D8BC2C FOREIGN KEY (device_id) REFERENCES CBADigitalReceipt.Devices(id) ON DELETE CASCADE,
-	CONSTRAINT FK__DEVICE_ST__devic__42CCE065 FOREIGN KEY (device_status) REFERENCES CBADigitalReceipt.STATUS(status_code) ON DELETE CASCADE
+	CONSTRAINT FK__DEVICE_ST__devic__41D8BC2C FOREIGN KEY (device_id) REFERENCES CBADigitalReceipt.dbo.Devices(id) ON DELETE CASCADE,
+	CONSTRAINT FK__DEVICE_ST__devic__42CCE065 FOREIGN KEY (device_status) REFERENCES CBADigitalReceipt.dbo.STATUS(status_code) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.PUSHDEVICE_OPERATION (
+CREATE TABLE CBADigitalReceipt.dbo.PUSHDEVICE_OPERATION (
 	id bigint IDENTITY(1,1) NOT NULL,
 	status varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	push_data varchar(1000) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
@@ -272,11 +272,11 @@ CREATE TABLE CBADigitalReceipt.PUSHDEVICE_OPERATION (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__PUSHDEVI__3213E83F800A73BB PRIMARY KEY (id),
-	CONSTRAINT FK__PUSHDEVIC__opera__4C564A9F FOREIGN KEY (operationId) REFERENCES CBADigitalReceipt.OPERATION(id) ON DELETE CASCADE,
-	CONSTRAINT FK__PUSHDEVIC__pushD__4D4A6ED8 FOREIGN KEY (pushDeviceId) REFERENCES CBADigitalReceipt.PUSH_DEVICE(id) ON DELETE CASCADE
+	CONSTRAINT FK__PUSHDEVIC__opera__4C564A9F FOREIGN KEY (operationId) REFERENCES CBADigitalReceipt.dbo.OPERATION(id) ON DELETE CASCADE,
+	CONSTRAINT FK__PUSHDEVIC__pushD__4D4A6ED8 FOREIGN KEY (pushDeviceId) REFERENCES CBADigitalReceipt.dbo.PUSH_DEVICE(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.RECEIPT_DETAILS (
+CREATE TABLE CBADigitalReceipt.dbo.RECEIPT_DETAILS (
 	id bigint IDENTITY(1,1) NOT NULL,
 	AUTH_CODE varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	CONVERTED_IMAGE_DATA varbinary(MAX) NULL,
@@ -293,7 +293,7 @@ CREATE TABLE CBADigitalReceipt.RECEIPT_DETAILS (
 	CONSTRAINT PK__RECEIPT___3213E83F42E2FDDC PRIMARY KEY (id)
 );
 
-CREATE TABLE CBADigitalReceipt.FailedSubmissions (
+CREATE TABLE CBADigitalReceipt.dbo.FailedSubmissions (
 	id bigint IDENTITY(1,1) NOT NULL,
 	currentRetry bigint NOT NULL,
 	record varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -302,10 +302,10 @@ CREATE TABLE CBADigitalReceipt.FailedSubmissions (
 	cause varchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	subscriptionId bigint NULL,
 	CONSTRAINT PK__FailedSu__3213E83F2A3DD77F PRIMARY KEY (id),
-	CONSTRAINT FK__FailedSub__subsc__1ABEEF0B FOREIGN KEY (subscriptionId) REFERENCES CBADigitalReceipt.Subscriptions(id)
+	CONSTRAINT FK__FailedSub__subsc__1ABEEF0B FOREIGN KEY (subscriptionId) REFERENCES CBADigitalReceipt.dbo.Subscriptions(id)
 );
 
-CREATE TABLE CBADigitalReceipt.Roles (
+CREATE TABLE CBADigitalReceipt.dbo.Roles (
 	id bigint IDENTITY(1,1) NOT NULL,
 	roleName varchar(45) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	deletedRec bigint DEFAULT 0 NULL,
@@ -317,11 +317,11 @@ CREATE TABLE CBADigitalReceipt.Roles (
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__Roles__3213E83FD41B78AB PRIMARY KEY (id),
 	CONSTRAINT [uk-role] UNIQUE (roleName,deletedRec),
-	CONSTRAINT FK__Roles__appCodeId__32CB82C6 FOREIGN KEY (appCodeId) REFERENCES CBADigitalReceipt.AppCodes(id)
+	CONSTRAINT FK__Roles__appCodeId__32CB82C6 FOREIGN KEY (appCodeId) REFERENCES CBADigitalReceipt.dbo.AppCodes(id)
 );
 
 
-CREATE TABLE CBADigitalReceipt.Permissions (
+CREATE TABLE CBADigitalReceipt.dbo.Permissions (
 	id bigint IDENTITY(1,1) NOT NULL,
 	createD smallint NULL,
 	readD smallint NULL,
@@ -336,10 +336,10 @@ CREATE TABLE CBADigitalReceipt.Permissions (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__Permissi__3213E83FDF4C89CA PRIMARY KEY (id),
-	CONSTRAINT FK__Permissio__resou__57FD0775 FOREIGN KEY (resourceId) REFERENCES CBADigitalReceipt.Resources(id) ON DELETE CASCADE,
-	CONSTRAINT FK__Permissio__roleI__58F12BAE FOREIGN KEY (roleId) REFERENCES CBADigitalReceipt.Roles(id) ON DELETE CASCADE
+	CONSTRAINT FK__Permissio__resou__57FD0775 FOREIGN KEY (resourceId) REFERENCES CBADigitalReceipt.dbo.Resources(id) ON DELETE CASCADE,
+	CONSTRAINT FK__Permissio__roleI__58F12BAE FOREIGN KEY (roleId) REFERENCES CBADigitalReceipt.dbo.Roles(id) ON DELETE CASCADE
 );
-CREATE TABLE CBADigitalReceipt.Partners (
+CREATE TABLE CBADigitalReceipt.dbo.Partners (
 	id bigint IDENTITY(1,1) NOT NULL,
 	name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	address varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -356,7 +356,7 @@ CREATE TABLE CBADigitalReceipt.Partners (
 	CONSTRAINT [uk-partner] UNIQUE (deletedRec)
 );
 
-CREATE TABLE CBADigitalReceipt.Merchants (
+CREATE TABLE CBADigitalReceipt.dbo.Merchants (
 	id bigint IDENTITY(1,1) NOT NULL,
 	name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	merchantId varchar(16) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -383,11 +383,11 @@ CREATE TABLE CBADigitalReceipt.Merchants (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__Merchant__3213E83F4262B9A2 PRIMARY KEY (id),
-	CONSTRAINT FK__Merchants__partn__3E3D3572 FOREIGN KEY (partnerId) REFERENCES CBADigitalReceipt.Partners(id) ON DELETE CASCADE
+	CONSTRAINT FK__Merchants__partn__3E3D3572 FOREIGN KEY (partnerId) REFERENCES CBADigitalReceipt.dbo.Partners(id) ON DELETE CASCADE
 );
-CREATE UNIQUE NONCLUSTERED INDEX merchants_merchant_id_deleted_rec ON CBADigitalReceipt.Merchants (merchantId, deletedRec);
+CREATE UNIQUE NONCLUSTERED INDEX merchants_merchant_id_deleted_rec ON CBADigitalReceipt.dbo.Merchants (merchantId, deletedRec);
 
-CREATE TABLE CBADigitalReceipt.Terminals (
+CREATE TABLE CBADigitalReceipt.dbo.Terminals (
 	id bigint IDENTITY(1,1) NOT NULL,
 	terminalId varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	deletedRec bigint DEFAULT 0 NULL,
@@ -408,12 +408,12 @@ CREATE TABLE CBADigitalReceipt.Terminals (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__Terminal__3213E83F5DA9519B PRIMARY KEY (id),
-	CONSTRAINT FK__Terminals__devic__636EBA21 FOREIGN KEY (deviceId) REFERENCES CBADigitalReceipt.Devices(id),
-	CONSTRAINT FK__Terminals__merch__627A95E8 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.Merchants(id)
+	CONSTRAINT FK__Terminals__devic__636EBA21 FOREIGN KEY (deviceId) REFERENCES CBADigitalReceipt.dbo.Devices(id),
+	CONSTRAINT FK__Terminals__merch__627A95E8 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id)
 );
-CREATE UNIQUE NONCLUSTERED INDEX terminals_terminal_id_deleted_rec ON CBADigitalReceipt.Terminals (terminalId, deletedRec);
+CREATE UNIQUE NONCLUSTERED INDEX terminals_terminal_id_deleted_rec ON CBADigitalReceipt.dbo.Terminals (terminalId, deletedRec);
 
-CREATE TABLE CBADigitalReceipt.Users (
+CREATE TABLE CBADigitalReceipt.dbo.Users (
 	id bigint IDENTITY(1,1) NOT NULL,
 	name varchar(45) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	userName varchar(45) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -436,13 +436,13 @@ CREATE TABLE CBADigitalReceipt.Users (
 	deletedAt datetime2 NULL,
 	CONSTRAINT PK__Users__3213E83F9C50A57A PRIMARY KEY (id),
 	CONSTRAINT [uk-user] UNIQUE (userName,email,deletedRec),
-	CONSTRAINT FK__Users__deviceId__52442E1F FOREIGN KEY (deviceId) REFERENCES CBADigitalReceipt.Devices(id),
-	CONSTRAINT FK__Users__merchantI__515009E6 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.Merchants(id),
-	CONSTRAINT FK__Users__partnerId__505BE5AD FOREIGN KEY (partnerId) REFERENCES CBADigitalReceipt.Partners(id),
-	CONSTRAINT FK__Users__roleId__4F67C174 FOREIGN KEY (roleId) REFERENCES CBADigitalReceipt.Roles(id)
+	CONSTRAINT FK__Users__deviceId__52442E1F FOREIGN KEY (deviceId) REFERENCES CBADigitalReceipt.dbo.Devices(id),
+	CONSTRAINT FK__Users__merchantI__515009E6 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id),
+	CONSTRAINT FK__Users__partnerId__505BE5AD FOREIGN KEY (partnerId) REFERENCES CBADigitalReceipt.dbo.Partners(id),
+	CONSTRAINT FK__Users__roleId__4F67C174 FOREIGN KEY (roleId) REFERENCES CBADigitalReceipt.dbo.Roles(id)
 );
 
-CREATE TABLE CBADigitalReceipt.UserConfigs (
+CREATE TABLE CBADigitalReceipt.dbo.UserConfigs (
 	id bigint IDENTITY(1,1) NOT NULL,
 	configType varchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	config varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
@@ -450,19 +450,19 @@ CREATE TABLE CBADigitalReceipt.UserConfigs (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__UserConf__3213E83FE6251C74 PRIMARY KEY (id),
-	CONSTRAINT FK__UserConfi__userI__69279377 FOREIGN KEY (userId) REFERENCES CBADigitalReceipt.Users(id) ON DELETE CASCADE
+	CONSTRAINT FK__UserConfi__userI__69279377 FOREIGN KEY (userId) REFERENCES CBADigitalReceipt.dbo.Users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.OneTimePasswords (
+CREATE TABLE CBADigitalReceipt.dbo.OneTimePasswords (
 	id bigint IDENTITY(1,1) NOT NULL,
 	value bigint NOT NULL,
 	expiresOn datetime2 NULL,
 	userId bigint NULL,
 	CONSTRAINT PK__OneTimeP__3213E83FE5E123BA PRIMARY KEY (id),
-	CONSTRAINT FK__OneTimePa__userI__6C040022 FOREIGN KEY (userId) REFERENCES CBADigitalReceipt.Users(id) ON DELETE CASCADE
+	CONSTRAINT FK__OneTimePa__userI__6C040022 FOREIGN KEY (userId) REFERENCES CBADigitalReceipt.dbo.Users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.AuditLogs (
+CREATE TABLE CBADigitalReceipt.dbo.AuditLogs (
 	id bigint IDENTITY(1,1) NOT NULL,
 	recordId bigint NOT NULL,
 	preValue varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
@@ -473,10 +473,10 @@ CREATE TABLE CBADigitalReceipt.AuditLogs (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__AuditLog__3213E83FF3DF7CFB PRIMARY KEY (id),
-	CONSTRAINT FK__AuditLogs__userI__2630A1B7 FOREIGN KEY (userId) REFERENCES CBADigitalReceipt.Users(id) ON DELETE CASCADE
+	CONSTRAINT FK__AuditLogs__userI__2630A1B7 FOREIGN KEY (userId) REFERENCES CBADigitalReceipt.dbo.Users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.FileExports (
+CREATE TABLE CBADigitalReceipt.dbo.FileExports (
 	id bigint IDENTITY(1,1) NOT NULL,
 	filePath varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	fileName varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -487,10 +487,10 @@ CREATE TABLE CBADigitalReceipt.FileExports (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__FileExpo__3213E83F9365C93C PRIMARY KEY (id),
-	CONSTRAINT FK__FileExpor__userI__520F23F5 FOREIGN KEY (userId) REFERENCES CBADigitalReceipt.Users(id) ON DELETE CASCADE
+	CONSTRAINT FK__FileExpor__userI__520F23F5 FOREIGN KEY (userId) REFERENCES CBADigitalReceipt.dbo.Users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.Batches (
+CREATE TABLE CBADigitalReceipt.dbo.Batches (
 	id bigint IDENTITY(1,1) NOT NULL,
 	batchNo bigint NULL,
 	batchKey varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
@@ -515,11 +515,11 @@ CREATE TABLE CBADigitalReceipt.Batches (
 	updatedAt datetime2 NOT NULL,
 	merchantId bigint NULL,
 	CONSTRAINT PK__Batches__3213E83F4922D2D0 PRIMARY KEY (id),
-	CONSTRAINT FK__Batches__merchan__7F16D496 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.Merchants(id),
-	CONSTRAINT FK__Batches__termina__7E22B05D FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.Terminals(id) ON DELETE CASCADE
+	CONSTRAINT FK__Batches__merchan__7F16D496 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id),
+	CONSTRAINT FK__Batches__termina__7E22B05D FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.dbo.Terminals(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.Transactions (
+CREATE TABLE CBADigitalReceipt.dbo.Transactions (
 	id bigint IDENTITY(1,1) NOT NULL,
 	originId varchar(65) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	paymentMode varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -559,12 +559,12 @@ CREATE TABLE CBADigitalReceipt.Transactions (
 	updatedAt datetime2 NOT NULL,
 	merchantId bigint NULL,
 	CONSTRAINT PK__Transact__3213E83F4B291826 PRIMARY KEY (id),
-	CONSTRAINT FK__Transacti__batch__03DB89B3 FOREIGN KEY (batchId) REFERENCES CBADigitalReceipt.Batches(id),
-	CONSTRAINT FK__Transacti__merch__04CFADEC FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.Merchants(id),
-	CONSTRAINT FK__Transacti__termi__02E7657A FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.Terminals(id) ON DELETE CASCADE
+	CONSTRAINT FK__Transacti__batch__03DB89B3 FOREIGN KEY (batchId) REFERENCES CBADigitalReceipt.dbo.Batches(id),
+	CONSTRAINT FK__Transacti__merch__04CFADEC FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id),
+	CONSTRAINT FK__Transacti__termi__02E7657A FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.dbo.Terminals(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.FailedTransactions (
+CREATE TABLE CBADigitalReceipt.dbo.FailedTransactions (
 	id bigint IDENTITY(1,1) NOT NULL,
 	originId varchar(65) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	paymentMode varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -605,12 +605,12 @@ CREATE TABLE CBADigitalReceipt.FailedTransactions (
 	updatedAt datetime2 NOT NULL,
 	merchantId bigint NULL,
 	CONSTRAINT PK__FailedTr__3213E83F1C1E6E3D PRIMARY KEY (id),
-	CONSTRAINT FK__FailedTra__batch__0B7CAB7B FOREIGN KEY (batchId) REFERENCES CBADigitalReceipt.Batches(id),
-	CONSTRAINT FK__FailedTra__merch__0C70CFB4 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.Merchants(id),
-	CONSTRAINT FK__FailedTra__termi__0A888742 FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.Terminals(id) ON DELETE CASCADE
+	CONSTRAINT FK__FailedTra__batch__0B7CAB7B FOREIGN KEY (batchId) REFERENCES CBADigitalReceipt.dbo.Batches(id),
+	CONSTRAINT FK__FailedTra__merch__0C70CFB4 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id),
+	CONSTRAINT FK__FailedTra__termi__0A888742 FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.dbo.Terminals(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.EReceipts (
+CREATE TABLE CBADigitalReceipt.dbo.EReceipts (
 	id bigint IDENTITY(1,1) NOT NULL,
 	email varchar(40) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	contactNo varchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
@@ -623,11 +623,11 @@ CREATE TABLE CBADigitalReceipt.EReceipts (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__EReceipt__3213E83F6B889BF6 PRIMARY KEY (id),
-	CONSTRAINT FK__EReceipts__batch__2354350C FOREIGN KEY (batchId) REFERENCES CBADigitalReceipt.Batches(id),
-	CONSTRAINT FK__EReceipts__trans__226010D3 FOREIGN KEY (transactionId) REFERENCES CBADigitalReceipt.Transactions(id) ON DELETE CASCADE
+	CONSTRAINT FK__EReceipts__batch__2354350C FOREIGN KEY (batchId) REFERENCES CBADigitalReceipt.dbo.Batches(id),
+	CONSTRAINT FK__EReceipts__trans__226010D3 FOREIGN KEY (transactionId) REFERENCES CBADigitalReceipt.dbo.Transactions(id) ON DELETE CASCADE
 );
 
-CREATE TABLE CBADigitalReceipt.AggregatedTransactions (
+CREATE TABLE CBADigitalReceipt.dbo.AggregatedTransactions (
 	id bigint IDENTITY(1,1) NOT NULL,
 	partnerId bigint NULL,
 	netTotal bigint NOT NULL,
@@ -638,14 +638,14 @@ CREATE TABLE CBADigitalReceipt.AggregatedTransactions (
 	updatedAt datetime2 NOT NULL,
 	merchantId bigint NULL,
 	CONSTRAINT PK__Aggregat__3213E83FE23033F6 PRIMARY KEY (id),
-	CONSTRAINT FK__Aggregate__merch__57C7FD4B FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.Merchants(id) ON DELETE SET NULL,
-	CONSTRAINT FK__Aggregate__partn__56D3D912 FOREIGN KEY (partnerId) REFERENCES CBADigitalReceipt.Partners(id)
+	CONSTRAINT FK__Aggregate__merch__57C7FD4B FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id) ON DELETE SET NULL,
+	CONSTRAINT FK__Aggregate__partn__56D3D912 FOREIGN KEY (partnerId) REFERENCES CBADigitalReceipt.dbo.Partners(id)
 );
-CREATE  UNIQUE NONCLUSTERED INDEX aggregated_transactions_merchant_id_partner_id_currency_date ON CBADigitalReceipt.AggregatedTransactions (  merchantId ASC  , partnerId ASC  , currency ASC  , date ASC  )  
+CREATE  UNIQUE NONCLUSTERED INDEX aggregated_transactions_merchant_id_partner_id_currency_date ON CBADigitalReceipt.dbo.AggregatedTransactions (  merchantId ASC  , partnerId ASC  , currency ASC  , date ASC  )  
 	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
 	 ON [PRIMARY ] ;
 
-CREATE TABLE CBADigitalReceipt.TASK_CONFIG (
+CREATE TABLE CBADigitalReceipt.dbo.TASK_CONFIG (
 	id bigint IDENTITY(1,1) NOT NULL,
 	[action] varchar(30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	isEnabled bit DEFAULT 0 NULL,
@@ -658,7 +658,7 @@ CREATE TABLE CBADigitalReceipt.TASK_CONFIG (
 	CONSTRAINT UQ__TASK_CON__2479A5165A6521F2 UNIQUE ([action])
 );
 
-CREATE TABLE CBADigitalReceipt.PAPER_ROLL_STATUS (
+CREATE TABLE CBADigitalReceipt.dbo.PAPER_ROLL_STATUS (
 	id bigint IDENTITY(1,1) NOT NULL,
 	status varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	serialNo varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
@@ -667,10 +667,10 @@ CREATE TABLE CBADigitalReceipt.PAPER_ROLL_STATUS (
 	updatedAt datetime2 NOT NULL,
 	merchantId bigint NULL,
 	CONSTRAINT PK__PAPER_RO__3213E83F2F0A2F12 PRIMARY KEY (id),
-	CONSTRAINT FK__PAPER_ROL__merch__5AA469F6 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.Merchants(id)
+	CONSTRAINT FK__PAPER_ROL__merch__5AA469F6 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id)
 );
 
-CREATE TABLE CBADigitalReceipt.TranSummary (
+CREATE TABLE CBADigitalReceipt.dbo.TranSummary (
 	id bigint IDENTITY(1,1) NOT NULL,
 	originId varchar(65) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	paymentMode varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -712,26 +712,26 @@ CREATE TABLE CBADigitalReceipt.TranSummary (
 	updatedAt datetime2 NOT NULL,
 	merchantId bigint NULL,
 	CONSTRAINT PK__TranSumm__3213E83FBD5A01F5 PRIMARY KEY (id),
-	CONSTRAINT FK__TranSumma__batch__6521F869 FOREIGN KEY (batchId) REFERENCES CBADigitalReceipt.Batches(id),
-	CONSTRAINT FK__TranSumma__merch__66161CA2 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.Merchants(id),
-	CONSTRAINT FK__TranSumma__termi__642DD430 FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.Terminals(id) ON DELETE CASCADE
+	CONSTRAINT FK__TranSumma__batch__6521F869 FOREIGN KEY (batchId) REFERENCES CBADigitalReceipt.dbo.Batches(id),
+	CONSTRAINT FK__TranSumma__merch__66161CA2 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id),
+	CONSTRAINT FK__TranSumma__termi__642DD430 FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.dbo.Terminals(id) ON DELETE CASCADE
 );
-INSERT INTO CBADigitalReceipt.Currencies (code,displayName,createdAt,updatedAt) VALUES
+INSERT INTO CBADigitalReceipt.dbo.Currencies (code,displayName,createdAt,updatedAt) VALUES
 	 (N'LKR',N'LKR','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (N'USD',N'USD','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (N'EUR',N'EUR','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (N'GBP',N'GBP','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
-INSERT INTO CBADigitalReceipt.Venders (name,img,createdAt,updatedAt) VALUES
+INSERT INTO CBADigitalReceipt.dbo.Venders (name,img,createdAt,updatedAt) VALUES
 	 (N'CBA',NULL,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
-INSERT INTO CBADigitalReceipt.DeviceModels (name,venderId,img,createdAt,updatedAt) VALUES
+INSERT INTO CBADigitalReceipt.dbo.DeviceModels (name,venderId,img,createdAt,updatedAt) VALUES
 	 (N'A920',1,NULL,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
-INSERT INTO CBADigitalReceipt.MerchantCategoryCodes (code,description,createdAt,updatedAt) VALUES
+INSERT INTO CBADigitalReceipt.dbo.MerchantCategoryCodes (code,description,createdAt,updatedAt) VALUES
 	 (N'5411',N'Grocery Stores, Supermarkets','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
-INSERT INTO CBADigitalReceipt.email_config (action,bcc,cc,to_list,createdAt,updatedAt) VALUES
+INSERT INTO CBADigitalReceipt.dbo.email_config (action,bcc,cc,to_list,createdAt,updatedAt) VALUES
 	 ('FAILED_FREQUENCY',NULL,NULL,'ashan.m@cba.lk,ashanbm@gmail.com','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 ('TIMEOUT_FREQUENCY',NULL,NULL,'ashan.m@cba.lk,ashanbm@gmail.com','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 ('OUT_OF_GEO_FENCE',NULL,NULL,'ashan.m@cba.lk,layantha95@gmail.com','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
@@ -743,7 +743,7 @@ INSERT INTO CBADigitalReceipt.email_config (action,bcc,cc,to_list,createdAt,upda
 	 ('TERMINAL_CREATION',NULL,NULL,'ashan.m@cba.lk,ashanbm@gmail.com','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
 
-INSERT INTO CBADigitalReceipt.TASK_CONFIG (createdAt,updatedAt,action,cron,isEnabled,period,value) VALUES
+INSERT INTO CBADigitalReceipt.dbo.TASK_CONFIG (createdAt,updatedAt,action,cron,isEnabled,period,value) VALUES
 	 ('2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000','UNSETTLED_ALERT','0 0/3 * * * ?',0,24,0),
 	 ('2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000','INACTIVE_ALERT','0 0/3 * * * ?',0,24,0),
 	 ('2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000','TRAN_AMOUNT','0/30 * * * * ?',1,0,500000),
@@ -751,7 +751,7 @@ INSERT INTO CBADigitalReceipt.TASK_CONFIG (createdAt,updatedAt,action,cron,isEna
 	 ('2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000','FAILED_FREQUENCY','0 0/3 * * * ?',0,72,1),
 	 ('2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000','TIMEOUT_FREQUENCY','0 0/3 * * * ?',0,72,1);
 
-INSERT INTO CBADigitalReceipt.STATUS (status_code,status_description,createdAt,updatedAt) VALUES
+INSERT INTO CBADigitalReceipt.dbo.STATUS (status_code,status_description,createdAt,updatedAt) VALUES
 	 ('ACTV','Active','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 ('BATC','Batch Uploading','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 ('COMP','Completed','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
@@ -765,18 +765,18 @@ INSERT INTO CBADigitalReceipt.STATUS (status_code,status_description,createdAt,u
 	 ('REVP','Reversal pending','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 ('VOID','Voided transaction','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
-INSERT INTO CBADigitalReceipt.OPERATION (id,createdAt,updatedAt,operationcode,description,status) VALUES
+INSERT INTO CBADigitalReceipt.dbo.OPERATION (id,createdAt,updatedAt,operationcode,description,status) VALUES
 	 (1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000','MSG','Message-operation','ACTV'),
 	 (2,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000','DIN','Get Device Info','ACTV'),
 	 (3,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000','SET','Settlement Operation','ACTV');
 
-INSERT INTO CBADigitalReceipt.AppCodes (code,description,deletedRec,createdAt,updatedAt) VALUES
+INSERT INTO CBADigitalReceipt.dbo.AppCodes (code,description,deletedRec,createdAt,updatedAt) VALUES
 	 (N'57eb8e42-dde6-4a75-a501-5d6c431dd12c',N'ADMIN',0,'2024-07-08 09:13:37.4760000 +00:00','2024-07-08 09:13:37.4760000 +00:00'),
 	 (N'f0f87dec-f390-4409-a068-6fe41905ba5b',N'PARTNER',0,'2024-07-08 09:13:37.6500000 +00:00','2024-07-08 09:13:37.6500000 +00:00'),
 	 (N'095b4ff7-f1d3-4195-a74a-291c24574b84',N'MERCHANT',0,'2024-07-08 09:13:37.6630000 +00:00','2024-07-08 09:13:37.6630000 +00:00'),
 	 (N'2db4e14d-0cb7-4ec6-a867-46fe2b57cb3f',N'DEVICE',0,'2024-07-08 09:13:37.6740000 +00:00','2024-07-08 09:13:37.6740000 +00:00');
 
-CREATE TABLE CBADigitalReceipt.SequelizeMeta (
+CREATE TABLE CBADigitalReceipt.dbo.SequelizeMeta (
 	name varchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	CONSTRAINT PK__Sequeliz__72E12F1AAA3A5C76 PRIMARY KEY (name),
 	CONSTRAINT UQ__Sequeliz__72E12F1B8A17BE98 UNIQUE (name)
