@@ -660,14 +660,19 @@ CREATE TABLE CBADigitalReceipt.dbo.TASK_CONFIG (
 
 CREATE TABLE CBADigitalReceipt.dbo.PAPER_ROLL_STATUS (
 	id bigint IDENTITY(1,1) NOT NULL,
-	status varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	serialNo varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	reqDate datetime2 NULL,
+	[type] varchar(200) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	remarks varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	contactPerson varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	contactNumber varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	merchantId bigint NULL,
-	CONSTRAINT PK__PAPER_RO__3213E83F2F0A2F12 PRIMARY KEY (id),
-	CONSTRAINT FK__PAPER_ROL__merch__5AA469F6 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id)
+	terminalId bigint NULL,
+	CONSTRAINT PK__PAPER_RO__3213E83F113B872E PRIMARY KEY (id),
+	CONSTRAINT FK__PAPER_ROL__merch__03E80D59 FOREIGN KEY (merchantId) REFERENCES CBADigitalReceipt.dbo.Merchants(id),
+	CONSTRAINT FK__PAPER_ROL__termi__04DC3192 FOREIGN KEY (terminalId) REFERENCES CBADigitalReceipt.dbo.Terminals(id)
 );
 
 CREATE TABLE CBADigitalReceipt.dbo.TranSummary (
