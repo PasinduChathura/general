@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS CBADigitalReceipt.dbo.DEVICE_INFO ;
 CREATE TABLE CBADigitalReceipt.DEVICE_INFO (
 	id bigint IDENTITY(1,1) NOT NULL,
-	app_list varchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
+	app_list varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
 	cpu varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
 	ram varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
 	battery varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT NULL NULL,
