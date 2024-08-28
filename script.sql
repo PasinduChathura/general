@@ -758,7 +758,6 @@ INSERT INTO CBADigitalReceipt.dbo.Resources (name,createdAt,updatedAt) VALUES
 INSERT INTO CBADigitalReceipt.dbo.Resources (name,createdAt,updatedAt) VALUES
 	 (N'report-export','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (N'geo-location','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
-	 (N'settlement','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (N'force-settlement','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
 INSERT INTO CBADigitalReceipt.dbo.Roles (roleName,deletedRec,createdBy,modifiedBy,deletedBy,appCodeId,createdAt,updatedAt) VALUES
@@ -784,13 +783,12 @@ INSERT INTO CBADigitalReceipt.dbo.Permissions (createD,readD,updateD,deleteD,cre
 	 (1,1,1,1,NULL,NULL,NULL,0,16,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (1,1,1,1,NULL,NULL,NULL,0,17,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (1,1,1,1,NULL,NULL,NULL,0,18,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
-	 (1,1,1,1,NULL,NULL,NULL,0,19,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
-	 (1,1,1,1,NULL,NULL,NULL,0,20,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
+	 (1,1,1,1,NULL,NULL,NULL,0,19,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 INSERT INTO CBADigitalReceipt.dbo.Permissions (createD,readD,updateD,deleteD,createdBy,modifiedBy,deletedBy,deletedRec,resourceId,roleId,createdAt,updatedAt) VALUES
+	 (1,1,1,1,NULL,NULL,NULL,0,20,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (1,1,1,1,NULL,NULL,NULL,0,21,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (1,1,1,1,NULL,NULL,NULL,0,22,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
-	 (1,1,1,1,NULL,NULL,NULL,0,23,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
-	 (1,1,1,1,NULL,NULL,NULL,0,24,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
+	 (1,1,1,1,NULL,NULL,NULL,0,23,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
 INSERT INTO CBADigitalReceipt.dbo.Users (name,userName,password,email,contactNo,lastLoginTime,loginAttempts,sessionId,createdBy,modifiedBy,deletedBy,deletedRec,roleId,partnerId,merchantId,deviceId,createdAt,updatedAt,deletedAt) VALUES
 	 (N'Super Admin',N'SuperAdmin',N'$2a$10$0cLqaal/OjgOinPDixZVvuJJ/vVrjg5icbEtNed6iFjAfFmfmS2la',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,0,1,NULL,NULL,NULL,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000',NULL);
