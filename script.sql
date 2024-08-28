@@ -344,7 +344,7 @@ CREATE TABLE CBADigitalReceipt.dbo.Partners (
 	name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	address varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	email varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	contactNo varchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	contactNo varchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	deletedRec bigint DEFAULT 0 NOT NULL,
 	createdBy bigint NULL,
 	modifiedBy bigint NULL,
