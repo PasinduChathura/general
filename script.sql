@@ -353,7 +353,7 @@ CREATE TABLE CBADigitalReceipt.dbo.Partners (
 	createdAt datetime2 NOT NULL,
 	updatedAt datetime2 NOT NULL,
 	CONSTRAINT PK__Partners__3213E83FC2B65229 PRIMARY KEY (id),
-	CONSTRAINT [uk-partner] UNIQUE (deletedRec)
+	CONSTRAINT [uk-partner] UNIQUE (name,deletedRec)
 );
 
 CREATE TABLE CBADigitalReceipt.dbo.Merchants (
