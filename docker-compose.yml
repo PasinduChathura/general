@@ -1,0 +1,163 @@
+version: "3.8"
+services:
+  # reverse-proxy:
+  #   depends_on:
+  #     - wireme-core
+  #       # - aoer-service
+  #   image: cbaitd/dev:reverse_proxy_v1.0.2
+  #   ports:
+  #     - 3081:81
+  #   networks:
+  #     - wireme-core-ca-network
+  #   restart: always
+  #   container_name: "proxy-ca-uat-cbc"
+
+
+  email-service:
+    image: cbaitd/email-service:CBC_V1.0.0
+    ports:
+      - 9091:9091
+    networks:
+      - wireme-core-ca-network
+    restart: always
+    container_name: email-service
+    environment:
+      - SPRING_MAIL_HOST=mailgateway.combank.net
+      - SPRING_MAIL_PORT=25
+      - SPRING_MAIL_USERNAME=combankpos@combank.net
+      - SPRING_MAIL_PASSWORD=combank@123
+      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true
+      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=true
+      - SENDER_MAIL_ADDRESS=combankpos@combank.net
+      - SENDER_BANK_LOGO=${LOGO}
+
+  wireme-core-ca:
+    image: cbaitd/wireme-core-ca:CBC_V1.1.4
+    volumes:
+      - /var/log/audit/core:/logs
+      - /var/log/audit/reports:/home/reports
+      - /var/log/audit/migrations:/home/migrations
+    ports:
+      - 8500:8500
+      - 8502:8502
+    environment:
+      - FROM_DOCKER=1
+      - NODE_ENV=development
+      - JWT_EXPIRES_IN=2h
+      - DB_TYPE=mssql
+      - DB_HOST=192.168.0.78
+      - DB_PORT=1433
+      - DB_UNAME=cbadigital
+      - DB_PWORD=dReceipt@123
+      - DB_NAME=CBADigitalReceipt
+      - DB_DOMAIN=dccombank.ad
+      - DB_INSTANCE=-1
+      - AOER_PORT=9090
+      - AOER_HOST=aoer-service
+      - MYSQL_ROOT_HOST='%'
+      - SMS_HOST=api.bulksms.lk
+      - SMS_PORT=443
+      - SMS_USER=ComQPlusTest
+      - SMS_PASSWORD=kiYwerIr734
+      - SMS_URL=https://api.bulksms.lk
+      - EMAIL_HOST=mailgateway.combank.net
+      - EMAIL_PORT=25
+      - EMAIL_UNAME=npd@combank.net
+      - EMAIL_PWORD=wiremetest12
+      - EMAIL_SECURED=true
+      - EMAIL_TLS=true
+      - EMAIL_SERVICE_HOST=email-service
+      - EMAIL_SERVICE_PORT=9091
+      - LOG_FILE_PATH=/logs
+      - FILE_EXPORT_SERVICE_DIRECTORY=/home/reports
+      - MIGRATION_DIRECTORY=/home
+      - SB_SCRIPT_DIRECTORY=
+      - AD_CONFIG_URL=uatad.combank.net
+      - AD_CONFIG_PORT=389
+      - AD_CONFIG_DOMAIN=uatad
+      - AD_CONFIG_CONTAINER=dc=uatad,dc=itrd
+      - CUSTOMER_SUPPORT_CONTACT_NO=0112353353
+
+    container_name: "wireme-core-ca"
+    networks:
+      - wireme-core-ca-network
+    restart: always
+
+  aoer-service:
+    image: cbaitd/aoer-service:CBC_V1.0.5
+    ports:
+      - 9090:9090
+    networks:
+      - wireme-core-ca-network
+    restart: always
+    container_name: aoer-service-cbc
+    depends_on:
+      - email-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://192.168.0.78:1433;databaseName=CBADigitalReceipt;trustServerCertificate=true;integratedSecurity=true;user=cbadigital;password=dReceipt@123;authenticationScheme=NTLM;domain=dccombank;
+      # - SPRING_DATASOURCE_USERNAME=CBC_TEST
+      # - SPRING_DATASOURCE_PASSWORD=112Cbait@193
+      - EMAIL_BASEURL=http://email-service:9091/api/email/v1
+
+
+  pushnotification-server:
+    image: cbaitd/push-notification:CBC_V1.0.9
+    ports:
+      - 9595:9595
+    networks:
+      - wireme-core-ca-network
+    volumes:
+      - /var/log/audit/pushnotification-server:/home/logs/PushService
+    container_name: pushnotification-server
+    restart: always
+    environment:
+      # - DB_HOST=124.43.71.173
+      # - DB_PORT=1433
+      # - DB_USER=CBC_TEST
+      # - DB_PASSWORD=112Cbait@193
+      # - DB_NAME=wireme_test
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://192.168.0.78:1433;databaseName=CBADigitalReceipt;trustServerCertificate=true;integratedSecurity=true;user=cbadigital;password=dReceipt@123;authenticationScheme=NTLM;domain=dccombank;
+      - SIGNATURE_SYNQ_SERVICE=wireme-core:8502
+      - DEVICEINFO_SYNQ_SERVICE=aoer-service:9090
+      - CBA_GETDEVICEINFOENDPOINT=http://aoer-service:9090/api/aoer/v1/device-status
+      - TZ=Asia/Colombo
+
+  file-export-service:
+    image: cbaitd/file-export-service:CBC_V1.0.1
+    ports:
+      - "9797:9797"
+    networks:
+      - wireme-core-ca-network
+    volumes:
+      - /var/log/audit/reports:/home/reports
+      - /var/log/audit/file-export:/home/logs/FileExportService
+    restart: always
+    container_name: file-export-service
+    environment:
+      # - DB_HOST=124.43.71.173
+      # - DB_PORT=1433
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://192.168.0.78:1433;databaseName=CBADigitalReceipt;trustServerCertificate=true;integratedSecurity=true;user=cbadigital;password=dReceipt@123;authenticationScheme=NTLM;domain=dccombank;
+      # - DB_USER=CBC_TEST
+      # - DB_PASSWORD=112Cbait@193
+      # - DB_NAME=wireme_test
+      - CLEANUP_DIRECTORY=/home/reports
+      - CLEANUP_PERIOD=30
+      - CLEANUP_CRON=0 30 01 * * ?
+      - FILE_EXPORT_CRON=0 * * * * ?
+      - TZ=Asia/Colombo
+
+  frontend-service:
+    image: cbaitd/dev:CBC_A_V1.0.5
+    ports:
+      - 3000:80
+    networks:
+      - wireme-core-ca-network
+    restart: always
+    container_name: wireme-frontend-public
+    environment:
+      - BASE_URL=https://172.16.102.183
+      - APP_CODE=57eb8e42-dde6-4a75-a501-5d6c431dd12c
+
+networks:
+  wireme-core-ca-network:
+    name: wireme-core-ca-network
