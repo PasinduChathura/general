@@ -3,3 +3,11 @@ cbaitd/aoer-service-cbc:v1.0.5_uat		cbaitd/aoer-service:CBC_V1.0.5
 cbaitd/dev:CBC_A_V1.0.5_UAT	             	cbaitd/dev:CBC_A_V1.0.5
 layantha/email-service:latest	             	cbaitd/email-service:CBC_V1.0.0
 cbaitd/file-export-service-cbc:v1.0.1	            cbaitd/file-export-service:CBC_V1.0.1
+
+
+/SERVER 1
+host: 172.16.102.183
+
+/SERVER 2
+host: 172.16.102.184
+
