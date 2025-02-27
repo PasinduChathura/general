@@ -66,3 +66,8 @@ INSERT INTO CBADigitalReceipt.dbo.Permissions (createD,readD,updateD,deleteD,cre
 
 INSERT INTO CBADigitalReceipt.dbo.Users (name,userName,password,email,contactNo,lastLoginTime,loginAttempts,sessionId,createdBy,modifiedBy,deletedBy,deletedRec,roleId,partnerId,merchantId,deviceId,createdAt,updatedAt,deletedAt) VALUES
 	 (N'Super Admin',N'SuperAdmin',N'$2a$10$0cLqaal/OjgOinPDixZVvuJJ/vVrjg5icbEtNed6iFjAfFmfmS2la',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,0,1,NULL,NULL,NULL,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000',NULL);
+
+
+UPDATE CBADigitalReceipt.dbo.AppCodes
+SET code = '57eb8e42-dde6-4a75-a501-5d6c431dd12'
+WHERE description = 'ADMIN';
