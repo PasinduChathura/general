@@ -1,3 +1,24 @@
+DELETE FROM CBADigitalReceipt.dbo.MerchantCategoryCodes;
+DELETE FROM CBADigitalReceipt.dbo.Users;
+DELETE FROM CBADigitalReceipt.dbo.Permissions;
+DELETE FROM CBADigitalReceipt.dbo.Roles;
+DELETE FROM CBADigitalReceipt.dbo.Resources;
+DELETE FROM CBADigitalReceipt.dbo.AppCodes;
+DELETE FROM CBADigitalReceipt.dbo.DeviceModels;
+DELETE FROM CBADigitalReceipt.dbo.Venders;
+DELETE FROM CBADigitalReceipt.dbo.Currencies;
+
+INSERT INTO CBADigitalReceipt.dbo.Currencies (code,displayName,createdAt,updatedAt) VALUES
+	 (N'LKR',N'LKR','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
+	 (N'USD',N'USD','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
+	 (N'EUR',N'EUR','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
+	 (N'GBP',N'GBP','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
+
+INSERT INTO CBADigitalReceipt.dbo.AppCodes (code,description,deletedRec,createdAt,updatedAt) VALUES
+	 (N'57eb8e42-dde6-4a75-a501-5d6c431dd12c',N'ADMIN',0,'2024-07-08 09:13:37.4760000 +00:00','2024-07-08 09:13:37.4760000 +00:00'),
+	 (N'f0f87dec-f390-4409-a068-6fe41905ba5b',N'PARTNER',0,'2024-07-08 09:13:37.6500000 +00:00','2024-07-08 09:13:37.6500000 +00:00'),
+	 (N'095b4ff7-f1d3-4195-a74a-291c24574b84',N'MERCHANT',0,'2024-07-08 09:13:37.6630000 +00:00','2024-07-08 09:13:37.6630000 +00:00'),
+	 (N'2db4e14d-0cb7-4ec6-a867-46fe2b57cb3f',N'DEVICE',0,'2024-07-08 09:13:37.6740000 +00:00','2024-07-08 09:13:37.6740000 +00:00');
 
 INSERT INTO CBADigitalReceipt.dbo.Resources (name,createdAt,updatedAt) VALUES
 	 (N'users','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
@@ -60,14 +81,15 @@ INSERT INTO CBADigitalReceipt.dbo.Permissions (createD,readD,updateD,deleteD,cre
 	 (1,1,1,1,NULL,NULL,NULL,0,22,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (1,1,1,1,NULL,NULL,NULL,0,23,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000'),
 	 (1,1,1,1,NULL,NULL,NULL,0,24,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
-	 (1,1,1,1,NULL,NULL,NULL,0,25,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
-	 (1,1,1,1,NULL,NULL,NULL,0,26,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
-	 (1,1,1,1,NULL,NULL,NULL,0,27,1,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
 INSERT INTO CBADigitalReceipt.dbo.Users (name,userName,password,email,contactNo,lastLoginTime,loginAttempts,sessionId,createdBy,modifiedBy,deletedBy,deletedRec,roleId,partnerId,merchantId,deviceId,createdAt,updatedAt,deletedAt) VALUES
 	 (N'Super Admin',N'SuperAdmin',N'$2a$10$0cLqaal/OjgOinPDixZVvuJJ/vVrjg5icbEtNed6iFjAfFmfmS2la',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,0,1,NULL,NULL,NULL,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000',NULL);
 
+INSERT INTO CBADigitalReceipt.dbo.Venders (name,img,createdAt,updatedAt) VALUES
+	 (N'CBA',NULL,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
 
-UPDATE CBADigitalReceipt.dbo.AppCodes
-SET code = '57eb8e42-dde6-4a75-a501-5d6c431dd12'
-WHERE description = 'ADMIN';
+INSERT INTO CBADigitalReceipt.dbo.DeviceModels (name,venderId,img,createdAt,updatedAt) VALUES
+	 (N'A920',1,NULL,'2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
+
+INSERT INTO CBADigitalReceipt.dbo.MerchantCategoryCodes (code,description,createdAt,updatedAt) VALUES
+	 (N'5411',N'Grocery Stores, Supermarkets','2024-05-06 14:05:10.1150000','2024-05-06 14:05:10.1150000');
